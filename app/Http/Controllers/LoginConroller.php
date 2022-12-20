@@ -20,4 +20,17 @@ class LoginConroller extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|string|min:11|max:16',
+            'password' => 'required|string|min:5',
+        ]);
+    }
+
+    public function username()
+    {
+        return 'phone';
+    }
 }
