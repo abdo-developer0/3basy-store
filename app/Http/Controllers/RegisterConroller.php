@@ -31,7 +31,7 @@ class RegisterConroller extends Controller
         $user = user::create( $request->only('name','phone','password') );
 
         if(Auth::loginUsingId($user->id)) {
-            return redirect()->route('home+');
+            return redirect()->route('home');
         }
         
 

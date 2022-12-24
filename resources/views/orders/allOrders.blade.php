@@ -18,11 +18,15 @@
                 <div class="col-md-9">
                     <div class="card-body">
                         <p class="card-text h4 mb-2">{{ $order->user->name }}</p>
-                        <p class="card-text h4 mb-2">I want Buy {{$order->item->name}} by {{ $order->item->price }}</p>
-                        <!-- <div class="row">
-                            <a href="" class="btn btn-info rounded-5 col-md-5 mb-1">Open New</a>
-                            <a href="" class="btn btn-info rounded-5 col-md-5">Open New</a>
-                        </div> -->
+                        <p class="card-text h4 mb-2">Item: {{$order->item->name}}<br>Price: {{ $order->item->price }}</p>
+                        <div class="row pt-2">
+                            @if($order->chatroom)
+                            <a href="{{ route('chatroom', $order->id) }}" class="btn btn-primary col-md-5">Open Chatroom</a>
+                            @else
+                            <a href="{{ route('chatroom', $order->id) }}" class="btn btn-success col-md-5 rounded-pill me-1 mb-1">Create Chatroom</a>
+                            <a href="" class="btn btn-danger col-md-5 rounded-pill">Remove Order</a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

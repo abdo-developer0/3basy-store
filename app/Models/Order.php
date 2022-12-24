@@ -24,4 +24,9 @@ class Order extends Model
     {
         return $this->belongsTo(Item::class);
     }
+
+    public function chatroom()
+    {
+        return $this->hasOne(Chatroom::class);
+    }
 }

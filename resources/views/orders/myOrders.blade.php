@@ -18,11 +18,15 @@
                 <div class="col-md-9">
                     <div class="card-body">
                         <p class="card-text h4 mb-2">You</p>
-                        <p class="card-text h4 mb-2">I want Buy {{$order->item->name}} by {{ $order->item->price }}</p>
-                        <!-- <div class="row">
-                            <a href="" class="btn btn-info rounded-5 col-md-5 mb-1">Open New</a>
-                            <a href="" class="btn btn-info rounded-5 col-md-5">Open New</a>
-                        </div> -->
+                        <p class="card-text h4 mb-2">Order: {{$order->item->name}}</p>
+                        <p class="card-text h5 mb-2">Price: ${{ $order->item->price }}</p>
+                        <div class="row">
+                            @if($order->chatroom)
+                            <!-- <a href="" class="btn btn-success">Open Chatroom</a> -->
+                            @else
+                            <span class="alert alert-info">Waiting..</span>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Custom\Auth;
+use App\Http\Controllers\ChatroomController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DashbordController;
@@ -12,33 +13,24 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/',             [HomeController::class, 'index'] )
-->name('home');
+Route::get('/',  [HomeController::class, 'index'] )->name('home');
 
 
-Route::get('/login',         [LoginConroller::class, 'showLoginForm'])
-->name('login');
+Route::get('/login',  [LoginConroller::class, 'showLoginForm'])->name('login');
+Route::post('/authenticate', [LoginConroller::class, 'login'])->name('authenticate');
+Route::get('/logout',    [LoginConroller::class, 'logout'])->name('logout');
 
-Route::post('/authenticate', [LoginConroller::class, 'login'])
-->name('authenticate');
+Route::get('/register',      [RegisterConroller::class, 'showRegisterForm'])->name('register');
+Route::post('/registration', [RegisterConroller::class, 'register'])->name('registration');
 
-Route::get('/register',      [RegisterConroller::class, 'showRegisterForm'])
-->name('register');
 
-Route::post('/registration', [RegisterConroller::class, 'register'])
-->name('registration');
+Route::get('/order/{id}/create',    [OrderController::class, 'create'] )->name('order.create');
+Route::get('/order/{id}/store', [OrderController::class, 'store'] )->name('order.store');
 
-Route::get('/logout',    [LoginConroller::class, 'logout'])
-->name('logout');
-
-Route::get('/order/{id}',    [OrderController::class, 'create'] )
-->name('order.create');
-
-Route::get('/order/{id}/create', [OrderController::class, 'store'] )
-->name('order.store');
+Route::get('/order/{id}/chatroom', [ChatroomController::class, 'index'] )->name('chatroom');
+Route::post('/order/{id}/send-message', [ChatroomController::class, 'index'] )->name('chatroom.storeMessage');
 
 Route::get('/myorders',[OrderController::class,'showMyOrders'])->name('my-order');
-
 
 Route::prefix('/dashbord')->group(function() {
 

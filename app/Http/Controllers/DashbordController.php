@@ -27,16 +27,12 @@ class DashbordController extends Controller
 
     public function showUsers()
     {
-        return view('users.show', [
-            'users' => User::all()
-        ]);
+        return view('users.index')->with('users', User::all() );
     }
 
     public function showOrders()
     {
-        return view('orders.show', [
-            'orders' => Order::all()
-        ]);
+        return view('orders.allOrders')->with('orders', Order::all() );
     }
 
 }

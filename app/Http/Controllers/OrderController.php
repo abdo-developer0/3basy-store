@@ -16,7 +16,7 @@ class OrderController extends Controller
 
     public function showMyOrders(Request $request)
     {
-        return view('orders.showMyOrders')->with('orders', $request->user()->orders);
+        return view('orders.myOrders')->with('orders', $request->user()->orders);
     }
 
     public function create(Request $request)

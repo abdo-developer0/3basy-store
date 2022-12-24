@@ -57,6 +57,12 @@ class DatabaseSeeder extends Seeder
                 'phone'    => '01283410848',
                 'password' => Hash::make('123456'),
                 'access'     => 1
+            ],
+            [
+                'name'     => 'Ahmed',
+                'phone'    => '01183410848',
+                'password' => Hash::make('123456'),
+                'access'     => 0
             ]
         ];
 
