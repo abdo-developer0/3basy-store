@@ -10,4 +10,9 @@ class Chatroom extends Model
     use HasFactory;
 
     protected $fillable = ['order_id'];
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

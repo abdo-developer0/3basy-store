@@ -22,7 +22,7 @@
                         <p class="card-text h5 mb-2">Price: ${{ $order->item->price }}</p>
                         <div class="row">
                             @if($order->chatroom)
-                            <!-- <a href="" class="btn btn-success">Open Chatroom</a> -->
+                            <a href="{{ route('chatroom', $order->id) }}" class="btn btn-success">Open Chatroom</a>
                             @else
                             <span class="alert alert-info">Waiting..</span>
                             @endif

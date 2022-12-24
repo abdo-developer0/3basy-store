@@ -28,7 +28,7 @@ Route::get('/order/{id}/create',    [OrderController::class, 'create'] )->name('
 Route::get('/order/{id}/store', [OrderController::class, 'store'] )->name('order.store');
 
 Route::get('/order/{id}/chatroom', [ChatroomController::class, 'index'] )->name('chatroom');
-Route::post('/order/{id}/send-message', [ChatroomController::class, 'index'] )->name('chatroom.storeMessage');
+Route::post('/order/{id}/send-message', [ChatroomController::class, 'storeMessage'] )->name('chatroom.send');
 
 Route::get('/myorders',[OrderController::class,'showMyOrders'])->name('my-order');
 
